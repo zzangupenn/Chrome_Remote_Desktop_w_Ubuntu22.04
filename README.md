@@ -76,5 +76,5 @@ sudo systemctl restart polkit
 reboot
 ```
 
-### Known issue with OpenGL
+### ❌ Known issue with OpenGL
 While the GPU is accessible in the remote session, the OpenGL backend has issues and will fall back to the CPU.
