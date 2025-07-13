@@ -22,52 +22,24 @@ sudo nano /etc/polkit-1/localauthority/50-local.d/95-desktop-privileges.pkla
 Copy in:
 ```
 [Allow NetworkManager actions]
-Identity=unix-user:<your_user_name>
+Identity=unix-user:lucerna
 Action=org.freedesktop.NetworkManager.*
 ResultAny=yes
 ResultInactive=yes
 ResultActive=yes
 
 [Allow UDisks2 mounting]
-Identity=unix-user:<your_user_name>
-Action=org.freedesktop.udisks2.filesystem-mount
+Identity=unix-user:lucerna
+Action=org.freedesktop.udisks2.*
 ResultAny=yes
-ResultInactive=no
-ResultActive=yes
-
-[Allow UDisks2 eject]
-Identity=unix-user:<your_user_name>
-Action=org.freedesktop.udisks2.eject-media
-ResultAny=yes
-ResultInactive=no
-ResultActive=yes
-
-[Allow UDisks2 unmount others]
-Identity=unix-user:<your_user_name>
-Action=org.freedesktop.udisks2.filesystem-unmount-others
-ResultAny=yes
-ResultInactive=no
+ResultInactive=yes
 ResultActive=yes
 
 [Allow ColorManager: create profile]
-Identity=unix-user:<your_user_name>
-Action=org.freedesktop.color-manager.create-profile
+Identity=unix-user:lucerna
+Action=org.freedesktop.color-manager.*
 ResultAny=yes
-ResultInactive=no
-ResultActive=yes
-
-[Allow ColorManager: create device]
-Identity=unix-user:<your_user_name>
-Action=org.freedesktop.color-manager.create-device
-ResultAny=yes
-ResultInactive=no
-ResultActive=yes
-
-[Allow ColorManager: modify device]
-Identity=unix-user:<your_user_name>
-Action=org.freedesktop.color-manager.modify-device
-ResultAny=yes
-ResultInactive=no
+ResultInactive=yes
 ResultActive=yes
 ```
 Restart `polkit` and reboot:
