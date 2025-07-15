@@ -22,21 +22,21 @@ sudo nano /etc/polkit-1/localauthority/50-local.d/95-desktop-privileges.pkla
 Copy in:
 ```
 [Allow NetworkManager actions]
-Identity=unix-user:lucerna
+Identity=unix-user:<your_username>
 Action=org.freedesktop.NetworkManager.*
 ResultAny=yes
 ResultInactive=yes
 ResultActive=yes
 
 [Allow UDisks2 mounting]
-Identity=unix-user:lucerna
+Identity=unix-user:<your_username>
 Action=org.freedesktop.udisks2.*
 ResultAny=yes
 ResultInactive=yes
 ResultActive=yes
 
 [Allow ColorManager: create profile]
-Identity=unix-user:lucerna
+Identity=unix-user:<your_username>
 Action=org.freedesktop.color-manager.*
 ResultAny=yes
 ResultInactive=yes
