@@ -8,7 +8,7 @@ The solution I find is to use `xfce4` for the CRD.
 2. Then install and set `xfce4`
 ```
 sudo apt install xfce4 xfce4-goodies -y
-echo 'exec /usr/bin/xfce4-session' > ~/.chrome-remote-desktop-session
+# echo 'exec /usr/bin/xfce4-session' > ~/.chrome-remote-desktop-session # If you want default to be xfce4
 sudo reboot
 ```
 
