@@ -19,7 +19,7 @@ When you install `xfce4`, it installs its own polkit agent (xfce-polkit) and pos
 sudo mkdir -p /etc/polkit-1/localauthority/50-local.d/
 sudo nano /etc/polkit-1/localauthority/50-local.d/95-desktop-privileges.pkla
 ```
-Copy in:
+Copy in: (change <your_username> to your username)
 ```
 [Allow NetworkManager actions]
 Identity=unix-user:<your_username>
