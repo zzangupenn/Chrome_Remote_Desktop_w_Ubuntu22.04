@@ -12,7 +12,7 @@ sudo apt install xfce4 xfce4-goodies -y
 sudo reboot
 ```
 
-### 🔐 Fixing Annoying Password Prompts in GNOME after Installing XFCE on Ubuntu
+## 🔐 Fixing Annoying Password Prompts in GNOME after Installing XFCE on Ubuntu
 When you install `xfce4`, it installs its own polkit agent (xfce-polkit) and possibly overrides or disables GNOME’s more permissive behavior. The Fix: Explicit `.pkla` Rules:
 
 ```
@@ -48,21 +48,11 @@ sudo systemctl restart polkit
 reboot
 ```
 
-### Prevent Session Termination via Logind
+## ⚠️ Prevent Session Termination
 This is a known issue on Ubuntu with GNOME where after a long idle period or suspend, the user session is terminated or corrupted in a way that prevents successful login via GUI—even with the correct password. 
-1. Edit your `logind.conf` to prevent the session from being stopped:
 ```
-sudo nano /etc/systemd/logind.conf
-```
-2. Uncomment:
-```
-KillUserProcesses=no
-```
-3. Then restart systemd-logind:
-```
-sudo systemctl restart systemd-logind
+sudo loginctl enable-linger $USER
 ```
 
-
-### ❌ Known issue with OpenGL
+## ❌ Known issue with OpenGL
 While the GPU is accessible in the remote session, the OpenGL backend has issues and will fall back to the CPU.
