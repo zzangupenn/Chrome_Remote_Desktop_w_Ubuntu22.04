@@ -54,5 +54,16 @@ This is a known issue on Ubuntu with GNOME where after a long idle period or sus
 sudo loginctl enable-linger $USER
 ```
 
+## 🛑 How to terminate the two sessions?
+As you use the CRD, you will find that the two sessions can interfere with each other. 
+To close the gnome session:
+```
+DISPLAY=:0 gnome-session-quit --logout --no-prompt
+```
+To close the xfce session:
+```
+DISPLAY=:20 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus xfce4-session-logout --logout --fast
+```
+
 ## ❌ Known issue with OpenGL
 While the GPU is accessible in the remote session, the OpenGL backend has issues and will fall back to the CPU.
