@@ -48,6 +48,20 @@ sudo systemctl restart polkit
 reboot
 ```
 
+## To enable nvidia gpu redering on gpu instances:
+* Run sudo nvidia-xconfig --preserve-busid --enable-all-gpus --connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3
+    * There may be a warning message, which can be ignored:
+    * WARNING: Unable to locate/open X configuration file.
+         sh: 1: pkg-config: not found
+* Edit /etc/X11/xorg.conf, add module paths to files section as follows:
+```
+Section "Files"
+        ModulePath "/usr/lib/x86_64-linux-gnu/nvidia/xorg"
+        ModulePath "/usr/lib/xorg/modules"
+EndSection
+```
+* After this restart gdm: `sudo systemctl restart gdm` and verify there’s no error message sudo systemctl status gdm
+
 ## ⚠️ Prevent Session Termination
 This is a known issue on Ubuntu with GNOME where after a long idle period or suspend, the user session is terminated or corrupted in a way that prevents successful login via GUI—even with the correct password. 
 ```
